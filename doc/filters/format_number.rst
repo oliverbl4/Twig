@@ -1,24 +1,24 @@
-``format_number``
+``number_format``
 =================
 
 .. versionadded:: 2.12
-    The ``format_number`` filter was added in Twig 2.12.
+    The ``number_format`` filter was added in Twig 2.12.
 
-The ``format_number`` filter formats a number:
+The ``number_format`` filter formats a number:
 
 .. code-block:: twig
 
-    {{ '12.345'|format_number }}
+    {{ '12.345'|number_format }}
 
 You can pass attributes to tweak the output:
 
 .. code-block:: twig
 
     {# 12.34 #}
-    {{ '12.345'|format_number({rounding_mode: 'floor'}) }}
+    {{ '12.345'|number_format({rounding_mode: 'floor'}) }}
 
     {# 1000000.0000 #}
-    {{ '1000000'|format_number({fraction_digit: 4}) }}
+    {{ '1000000'|number_format({fraction_digit: 4}) }}
 
 The list of supported options:
 
@@ -47,10 +47,10 @@ Besides plain numbers, the filter can also format numbers in various styles:
 .. code-block:: twig
 
     {# 1,234% #}
-    {{ '12.345'|format_number(style='percent') }}
+    {{ '12.345'|number_format(style='percent') }}
 
     {# twelve point three four five #}
-    {{ '12.345'|format_number(style='spellout') }}
+    {{ '12.345'|number_format(style='spellout') }}
 
     {# 12 sec. #}
     {{ '12'|format_duration_number }}
@@ -81,21 +81,21 @@ You can pass attributes to tweak the output:
 .. code-block:: twig
 
     {# €12.34 #}
-    {{ '12.345'|format_number('EUR', {rounding_mode: 'floor'}) }}
+    {{ '12.345'|number_format('EUR', {rounding_mode: 'floor'}) }}
 
     {# €1,000,000.0000 #}
-    {{ '1000000'|format_number('EUR', {fraction_digit: 4}) }}
+    {{ '1000000'|number_format('EUR', {fraction_digit: 4}) }}
 
 By default, the filter uses the current locale. You can pass it explicitly:
 
 .. code-block:: twig
 
     {# 12,345 #}
-    {{ '12.345'|format_number(locale='fr') }}
+    {{ '12.345'|number_format(locale='fr') }}
 
 .. note::
 
-    The ``format_number`` filter is part of the ``IntlExtension`` which is not
+    The ``number_format`` filter is part of the ``IntlExtension`` which is not
     installed by default. Install it first:
 
     .. code-block:: bash
